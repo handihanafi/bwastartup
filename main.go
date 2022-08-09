@@ -5,8 +5,6 @@ import (
 	"bwastartup/user"
 	"log"
 
-	// "net/http"
-
 	"github.com/gin-gonic/gin"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -30,6 +28,7 @@ func main() {
 	api := router.Group("/api/v1")
 
 	api.POST("/users", userHandler.RegisterUser)
+	api.POST("/sessions", userHandler.Login)
 
 	router.Run(":3000")
 }
